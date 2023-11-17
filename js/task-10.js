@@ -9,17 +9,17 @@ const btnCreate = document.querySelector(`button[data-create]`);
 const btnDelete = document.querySelector(`button[data-destroy]`);
 const input = document.querySelector("input");
 // Remove arrov function
-const removeDiv = () => (box.innerHTML = "");
+const destroyBoxes = () => (box.innerHTML = "");
 
 btnCreate.addEventListener("click", () => {
-  removeDiv();
-  box.append(...createDivPack(input.value));
+  destroyBoxes();
+  box.append(...createBoxes(input.value));
   input.value = 0;
   console.dir(box);
 });
-btnDelete.addEventListener("click", removeDiv);
+btnDelete.addEventListener("click", destroyBoxes);
 
-function createDiv(a) {
+function createBox(a) {
   const el = document.createElement("div");
 
   el.style.width = `${30 + a * 10}px`;
@@ -28,14 +28,10 @@ function createDiv(a) {
   return el;
 }
 
-function createDivPack(number) {
+function createBoxes(number) {
   const newArr = [];
   for (let i = 0; i < number; i++) {
-    newArr.push(createDiv(i));
+    newArr.push(createBox(i));
   }
   return newArr;
 }
-
-// function removeDiv() {
-//   box.innerHTML = "";
-// }

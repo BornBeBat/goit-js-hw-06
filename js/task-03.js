@@ -12,8 +12,10 @@ const images = [
     alt: "Group of Horses Running",
   },
 ];
-let str = "";
-images.forEach((img) => {
-  str += `<li><img src="${img.url}" alt="${img.alt}" width="300"></li>`;
-});
-document.querySelector(".gallery").insertAdjacentHTML("beforeend", str);
+const arr = images.map(
+  (currentImg) =>
+    `<li><img src="${currentImg.url}" alt="${currentImg.alt}" width="300"></li>`
+);
+document
+  .querySelector(".gallery")
+  .insertAdjacentHTML("beforeend", arr.join(""));

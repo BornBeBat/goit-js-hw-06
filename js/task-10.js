@@ -8,10 +8,14 @@ const box = document.querySelector("#boxes");
 const btnCreate = document.querySelector(`button[data-create]`);
 const btnDelete = document.querySelector(`button[data-destroy]`);
 const input = document.querySelector("input");
+// Remove arrov function
+const removeDiv = () => (box.innerHTML = "");
+
 btnCreate.addEventListener("click", () => {
   removeDiv();
   box.append(...createDivPack(input.value));
   input.value = 0;
+  console.dir(box);
 });
 btnDelete.addEventListener("click", removeDiv);
 
@@ -32,9 +36,6 @@ function createDivPack(number) {
   return newArr;
 }
 
-function removeDiv() {
-  const elements = box.children;
-  for (let i = elements.length - 1; i >= 0; i--) {
-    elements[i].remove();
-  }
-}
+// function removeDiv() {
+//   box.innerHTML = "";
+// }

@@ -3,21 +3,22 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-
-const box = document.querySelector("#boxes");
-const btnCreate = document.querySelector(`button[data-create]`);
-const btnDelete = document.querySelector(`button[data-destroy]`);
-const input = document.querySelector("input");
+const refs = {
+  box: document.querySelector("#boxes"),
+  btnCreate: document.querySelector(`button[data-create]`),
+  btnDelete: document.querySelector(`button[data-destroy]`),
+  input: document.querySelector("input"),
+};
 // Remove arrov function
-const destroyBoxes = () => (box.innerHTML = "");
+const destroyBoxes = () => (refs.box.innerHTML = "");
 
-btnCreate.addEventListener("click", () => {
+refs.btnCreate.addEventListener("click", () => {
   destroyBoxes();
-  box.append(...createBoxes(input.value));
-  input.value = 0;
+  refs.box.append(...createBoxes(refs.input.value));
+  refs.input.value = 0;
   console.dir(box);
 });
-btnDelete.addEventListener("click", destroyBoxes);
+refs.btnDelete.addEventListener("click", destroyBoxes);
 
 function createBox(a) {
   const el = document.createElement("div");

@@ -6,10 +6,10 @@ let counterValue = 0;
 // Button Decrement
 btnDec.addEventListener("click", () => {
   counterValue -= 1;
-  textContent = counterValue;
+  counterText.innerHTML = counterValue;
 });
 // Button Increment
 btnInc.addEventListener("click", () => {
   counterValue += 1;
-  counterText.textContent = counterValue;
+  counterText.innerHTML = counterValue;
 });
